@@ -11,8 +11,6 @@
       --bg0:#070A12;
       --bg1:#0B1222;
       --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.08);
-      --stroke: rgba(255,255,255,.12);
       --text:#E9EEF9;
       --muted: rgba(233,238,249,.72);
       --muted2: rgba(233,238,249,.56);
@@ -39,7 +37,6 @@
     a{color:inherit; text-decoration:none}
     a:focus{outline:2px solid rgba(124,92,255,.65); outline-offset:3px; border-radius:10px}
 
-    /* Top nav */
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(12px);
@@ -59,7 +56,6 @@
       display:flex; align-items:center; gap:10px;
       font-weight:700;
       letter-spacing:.2px;
-      color:var(--text);
       opacity:.95;
       white-space:nowrap;
     }
@@ -68,9 +64,7 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 4px rgba(124,92,255,.15);
     }
-    .nav{
-      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:9px 12px;
@@ -83,13 +77,8 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       user-select:none;
     }
-    .pill:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.16);
-    }
+    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16);}
 
-    /* Layout */
     .wrap{max-width:1100px; margin:0 auto; padding:22px 18px 70px}
     .grid{
       display:grid;
@@ -99,10 +88,9 @@
     }
     @media (max-width: 940px){
       .grid{grid-template-columns:1fr}
-      .nav{display:none} /* opcional: simplificar en móvil */
+      .nav{display:none}
     }
 
-    /* Hero card */
     .hero{
       border-radius: var(--radius);
       overflow:hidden;
@@ -115,34 +103,13 @@
       background:
         linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
         url("./img/banner.jpg") center/cover no-repeat;
-      position:relative;
-      pointer-events:none; /* importante: el banner no debe "tapar" clicks */
+      pointer-events:none;
     }
-    .hero-body{
-      padding:18px 18px 16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .hero h1{
-      margin:0;
-      font-size:34px;
-      letter-spacing:-.4px;
-      line-height:1.05;
-    }
-    .subtitle{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .tags{
-      margin-top:2px;
-      color: var(--muted2);
-      font-size:12.5px;
-    }
-    .hero-actions{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;
-    }
+    .hero-body{padding:18px 18px 16px; display:flex; flex-direction:column; gap:10px;}
+    .hero h1{margin:0; font-size:34px; letter-spacing:-.4px; line-height:1.05;}
+    .subtitle{margin:0; color:var(--muted); font-size:14px;}
+    .tags{margin-top:2px; color: var(--muted2); font-size:12.5px;}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 12px;
@@ -153,20 +120,14 @@
       font-size:13px;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.10);
-      border-color: rgba(255,255,255,.16);
-    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16);}
     .btn.primary{
       background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(55,184,255,.70));
       border-color: rgba(255,255,255,.14);
       color: #0a0d16;
       font-weight:700;
     }
-    .btn.primary:hover{filter: brightness(1.03)}
 
-    /* Cards */
     .card{
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.10);
@@ -183,18 +144,17 @@
     }
     .card p{margin:0; color: var(--muted); font-size:14px; line-height:1.55}
 
-    .list{
-      display:flex; flex-direction:column; gap:10px;
-    }
+    .list{display:flex; flex-direction:column; gap:10px;}
     .pub{
       border-radius: 14px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
       padding:12px;
     }
-    .pub-title{font-weight:700; color: rgba(233,238,249,.96); font-size:14px}
-    .pub-meta{margin-top:3px; color: var(--muted2); font-size:12.5px}
-    .pub-links{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap}
+    .pub-title{font-weight:700; color: rgba(233,238,249,.96); font-size:14px;}
+    .pub-meta{margin-top:3px; color: var(--muted2); font-size:12.5px;}
+    .pub-auth{margin-top:6px; color: rgba(233,238,249,.60); font-size:12.5px;}
+    .pub-links{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
     .chip{
       display:inline-flex; align-items:center; justify-content:center;
       padding:7px 10px;
@@ -204,33 +164,16 @@
       font-size:12.5px;
       color: rgba(233,238,249,.90);
     }
-    .chip.disabled{
-      opacity:.55;
-      cursor:not-allowed;
-    }
-    .chip:hover{background: rgba(255,255,255,.09)}
-    .chip.disabled:hover{background: rgba(255,255,255,.06)}
+    .chip:hover{background: rgba(255,255,255,.09);}
+    .chip.disabled{opacity:.55; cursor:not-allowed;}
+    .chip.disabled:hover{background: rgba(255,255,255,.06);}
 
-    .cols{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
-    }
-
-    .focus ul{
-      margin:0;
-      padding-left:18px;
-      color: var(--muted);
-      font-size:14px;
-      line-height:1.6;
-    }
-    .focus li{margin:6px 0}
-
-    .quick{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
+    .cols{display:grid; grid-template-columns:1fr; gap:16px;}
+    .focus ul{margin:0; padding-left:18px; color: var(--muted); font-size:14px; line-height:1.6;}
+    .focus li{margin:6px 0;}
+    .quick{display:flex; gap:10px; flex-wrap:wrap;}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+    .small{font-size:12.5px; color: var(--muted2);}
 
     footer{
       margin-top:28px;
@@ -240,8 +183,6 @@
       padding-top:18px;
       border-top:1px solid rgba(255,255,255,.08);
     }
-    .small{font-size:12.5px; color: var(--muted2)}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
   </style>
 </head>
 
@@ -296,14 +237,17 @@
 
         <section id="publications" class="card">
           <div class="row">
-            <h2 style="margin:0">Publications</h2>
+            <h2 style="margin:0">Selected publications</h2>
             <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">View all on Scholar</a>
           </div>
 
           <div class="list" style="margin-top:12px">
+
+            <!-- PAD (coming soon PDF) -->
             <div class="pub">
               <div class="pub-title">Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</div>
               <div class="pub-meta">HRI 2026 · Late Breaking Report</div>
+              <div class="pub-auth">E. J. Bejarano Sepúlveda, V. Bo, A. Sanfeliu, A. Garrell</div>
               <div class="pub-links">
                 <span class="chip disabled" title="Add the PDF when it is public.">Paper (PDF) · Coming soon</span>
                 <a class="chip" href="https://ejbejaranosai.github.io/hri-pad-navigation/" target="_blank" rel="noopener">Project Page</a>
@@ -311,21 +255,42 @@
               </div>
             </div>
 
-            <!-- Add your other papers here (manual). Example:
+            <!-- arXiv 2024 -->
             <div class="pub">
-              <div class="pub-title">Title of another paper</div>
-              <div class="pub-meta">Venue · Year</div>
+              <div class="pub-title">Towards Enhanced RAC Accessibility: Leveraging Datasets and LLMs</div>
+              <div class="pub-meta">arXiv preprint (arXiv:2405.08792) · 2024</div>
+              <div class="pub-auth">E. J. Bejarano Sepúlveda, N. P. Hector, S. P. Montoya, F. I. Rodríguez, J. E. Orduy, …</div>
               <div class="pub-links">
-                <a class="chip" href="https://..." target="_blank" rel="noopener">Paper</a>
-                <a class="chip" href="https://..." target="_blank" rel="noopener">Code</a>
+                <a class="chip" href="https://arxiv.org/abs/2405.08792" target="_blank" rel="noopener">Paper (arXiv)</a>
               </div>
             </div>
-            -->
+
+            <!-- Noise pollution ADS-B 2024 (keep one canonical entry) -->
+            <div class="pub">
+              <div class="pub-title">Estudio de la contaminación auditiva producida por las aeronaves sobre la ciudad de Bogotá, utilizando el sistema ADS-B</div>
+              <div class="pub-meta">Revista Ciencia y Poder Aéreo · 2024</div>
+              <div class="pub-auth">D. S. Traslaviña Navarrete, A. M. Rosales Cabezas, S. N. Madrid Farfán, …</div>
+              <div class="pub-links">
+                <span class="chip disabled" title="Add the journal link/DOI when available.">Paper · Link pending</span>
+              </div>
+            </div>
+
+            <!-- Turboshaft GSE 2021 (keep one canonical entry) -->
+            <div class="pub">
+              <div class="pub-title">Conceptual Design and Structural Analysis of Ground Support Equipment for Handling and Maintenance of Turboshaft Engines</div>
+              <div class="pub-meta">DYNA 88(218) · 2021</div>
+              <div class="pub-auth">I. F. Rodríguez-Barón, J. E. Orduy-Rodríguez, B. A. Rosas-Bonilla, …</div>
+              <div class="pub-links">
+                <span class="chip disabled" title="Add the journal link/DOI when available.">Paper · Link pending</span>
+              </div>
+            </div>
+
+            <!-- Spanish title version 2021 appears duplicated in Scholar: omit to avoid repetition -->
           </div>
 
           <p class="small" style="margin-top:12px">
-            Note: the site cannot auto-import Google Scholar entries (blocked by browser security policies).
-            Add items manually here, and keep the “View all on Scholar” link as the source of truth.
+            This list is curated manually (browsers block automatic import from Google Scholar).
+            Use “View all on Scholar” for the complete and authoritative list.
           </p>
         </section>
 
@@ -372,7 +337,6 @@
   </main>
 
   <script>
-    // Copy email button
     document.getElementById('copyEmail')?.addEventListener('click', async () => {
       const email = 'edison.bejarano@upc.edu';
       try{
@@ -382,7 +346,6 @@
         btn.textContent = 'Copied ✓';
         setTimeout(()=>btn.textContent = old, 1200);
       }catch(e){
-        // Fallback: open mail client
         window.location.href = 'mailto:' + email;
       }
     });
