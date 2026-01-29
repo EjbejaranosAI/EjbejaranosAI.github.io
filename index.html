@@ -1,65 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Edison Jair Bejarano Sepúlveda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #222; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    .hero {
-      height: 100vh;
-      background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url("./img/banner.jpg") center / cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070b14;
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.55);
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.045);
+      --border: rgba(255,255,255,.12);
+      --border2: rgba(255,255,255,.18);
+      --accent: #7c5cff;
+      --accent2:#38bdf8;
+      --maxw: 1040px;
+      --r: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
     }
 
-    .hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
-    .hero h2 { font-weight: normal; font-size: 1.2rem; margin-bottom: 1.5rem; }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(124,92,255,0.22), transparent 60%),
+        radial-gradient(700px 520px at 90% 10%, rgba(56,189,248,0.16), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(124,92,255,0.10), transparent 55%),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ opacity:.92; }
 
-    .links a { margin: 0 10px; color: white; text-decoration: none; font-weight: bold; }
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(7,11,20,0.55);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .brand{
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      font-size: 14px;
+      color: rgba(255,255,255,.95);
+    }
+    .nav-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-    section { max-width: 800px; margin: 60px auto; padding: 0 20px; }
-    h3 { border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.90);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border2);
+    }
+    .pill.primary{
+      background: linear-gradient(135deg, rgba(124,92,255,0.92), rgba(56,189,248,0.82));
+      color: #070b14;
+      border-color: rgba(255,255,255,0.20);
+    }
+    .pill.disabled{
+      opacity: .55;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .hero{
+      max-width: var(--maxw);
+      margin: 18px auto 0;
+      padding: 0 18px;
+    }
+    .hero-card{
+      border: 1px solid var(--border);
+      border-radius: calc(var(--r) + 8px);
+      overflow:hidden;
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+    .hero-media{
+      height: 300px;
+      background:
+        linear-gradient(rgba(0,0,0,0.10), rgba(0,0,0,0.78)),
+        url("./img/banner.jpg") center/cover no-repeat;
+      position: relative;
+    }
+    .hero-content{
+      padding: 20px 22px 22px;
+      display:grid;
+      gap: 14px;
+    }
+    .hero h1{
+      margin:0;
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+    }
+    .subtitle{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: -4px;
+    }
+    .meta{
+      color: var(--muted2);
+      font-size: 13px;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    main{
+      max-width: var(--maxw);
+      margin: 18px auto 70px;
+      padding: 0 18px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+    @media (max-width: 900px){
+      main{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      border-radius: var(--r);
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+    }
+    .card-header{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .card-header h2{
+      margin:0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.85);
+    }
+    .card-body{ padding: 16px; }
+
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 8px 0; }
+
+    .pub{
+      display:grid;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+    }
+    .pub + .pub{ margin-top: 12px; }
+    .pub-title{
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+    }
+    .pub-meta{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pub-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    footer{
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 13px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
-  <div class="hero">
-    <div>
-      <h1>Edison Jair Bejarano Sepúlveda</h1>
-      <h2>PhD Researcher · Human-Robot Interaction<br>CSIC–UPC (IRI)</h2>
-      <div class="links">
-        <a href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID</a>
-        <a href="mailto:edison.bejarano@upc.edu">Email</a>
+
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">Edison Jair Bejarano Sepúlveda</div>
+      <div class="nav-links">
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#publications">Publications</a>
+        <a class="pill" href="#research">Research</a>
+        <a class="pill" href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
+        <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a class="pill" href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID</a>
+        <a class="pill" href="mailto:edison.bejarano@upc.edu">Email</a>
       </div>
     </div>
   </div>
 
-  <section>
-    <h3>About</h3>
-    <p>
-      I am a PhD researcher at the Institute of Robotics and Industrial Informatics
-      (IRI, CSIC–UPC). My research focuses on socially-aware robot navigation and
-      human–robot interaction, combining perception, situational awareness,
-      and decision-making.
-    </p>
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-media"></div>
+      <div class="hero-content">
+        <div>
+          <h1>Edison Jair Bejarano Sepúlveda</h1>
+          <div class="subtitle">PhD Researcher · Human–Robot Interaction · CSIC–UPC (IRI)</div>
+          <div class="meta">
+            Socially-aware robot navigation · Interaction-aware decision-making · Multimodal perception & situational awareness
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="pill primary" href="https://www.iri.upc.edu/staff/ebejarano" target="_blank" rel="noopener">IRI Profile</a>
+          <a class="pill" href="#publications">Latest publication</a>
+          <a class="pill" href="mailto:edison.bejarano@upc.edu">Contact</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-    <h3>Publications</h3>
-    <p>
-      <strong>Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</strong><br>
-      HRI 2026 – Late Breaking Report<br>
-      <a href="#">Paper (PDF)</a> · <a href="#">Project Page</a> · <a href="#">Code</a>
-    </p>
-  </section>
+  <main>
+    <div style="display:grid; gap:18px;">
+      <section class="card" id="about">
+        <div class="card-header"><h2>About</h2></div>
+        <div class="card-body">
+          <p style="margin:0; color: var(--muted);">
+            I am a PhD researcher at the Institute of Robotics and Industrial Informatics (IRI, CSIC–UPC).
+            My work focuses on socially-aware navigation and human–robot interaction, combining perception,
+            situational awareness, and decision-making for robots operating in shared human environments.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" id="publications">
+        <div class="card-header">
+          <h2>Publications</h2>
+          <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ&hl=en" target="_blank" rel="noopener">View on Scholar</a>
+        </div>
+        <div class="card-body">
+          <div class="pub">
+            <div class="pub-title">Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</div>
+            <div class="pub-meta">HRI 2026 · Late Breaking Report</div>
+            <div class="pub-links">
+              <span class="pill disabled" title="Not public yet">Paper (PDF) · Coming soon</span>
+              <a class="pill" href="https://ejbejaranosai.github.io/hri-pad-navigation/#results" target="_blank" rel="noopener">Project Page</a>
+              <a class="pill" href="https://github.com/EjbejaranosAI/hri-pad-navigation" target="_blank" rel="noopener">Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div style="display:grid; gap:18px;">
+      <section class="card" id="research">
+        <div class="card-header"><h2>Research focus</h2></div>
+        <div class="card-body">
+          <ul class="list">
+            <li>Social navigation in dynamic human environments</li>
+            <li>Perception–awareness–decision pipelines</li>
+            <li>Context-grounded HRI and task-level dialogue</li>
+            <li>Semantic mapping & multimodal scene understanding</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-header"><h2>Quick links</h2></div>
+        <div class="card-body" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="pill" href="https://www.iri.upc.edu/staff/ebejarano" target="_blank" rel="noopener">IRI</a>
+          <a class="pill" href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
+          <a class="pill" href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID</a>
+          <a class="pill" href="mailto:edison.bejarano@upc.edu">Email</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 · Edison Jair Bejarano Sepúlveda · CSIC–UPC (IRI)
+  </footer>
+
 </body>
 </html>
