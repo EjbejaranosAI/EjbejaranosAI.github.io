@@ -3,55 +3,96 @@
 <head>
   <meta charset="UTF-8">
   <title>Edison Jair Bejarano Sepúlveda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #111;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
     }
-    h1, h2 {
-      line-height: 1.25;
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+      ), url("banner.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
     }
-    a {
-      color: #0066cc;
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h2 {
+      font-weight: normal;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .links a {
+      margin: 0 10px;
+      color: white;
       text-decoration: none;
+      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+
+    section {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
-    .paper {
-      margin-bottom: 1.5em;
+
+    h3 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 5px;
     }
   </style>
 </head>
 
 <body>
 
-<h1>Edison Jair Bejarano Sepúlveda</h1>
-<p>
-Researcher in Human–Robot Interaction and Socially-Aware Navigation.<br>
-CSIC–UPC, Barcelona, Spain
-</p>
+  <div class="hero">
+    <div>
+      <h1>Edison Jair Bejarano Sepúlveda</h1>
+      <h2>
+        PhD Researcher · Human-Robot Interaction<br>
+        CSIC–UPC (IRI)
+      </h2>
+      <div class="links">
+        <a href="https://github.com/EjbejaranosAI" target="_blank">GitHub</a>
+        <a href="https://scholar.google.com" target="_blank">Scholar</a>
+        <a href="https://orcid.org/0000-0002-5384-5141" target="_blank">ORCID</a>
+        <a href="mailto:edison.bejarano@upc.edu">Email</a>
+      </div>
+    </div>
+  </div>
 
-<p>
-<a href="mailto:edison.bejarano@upc.edu">Email</a> ·
-<a href="https://github.com/EjbejaranosAI">GitHub</a> ·
-<a href="https://orcid.org/0000-0002-5384-5141">ORCID</a>
-</p>
+  <section>
+    <h3>About</h3>
+    <p>
+      I am a PhD researcher at the Institute of Robotics and Industrial Informatics
+      (IRI, CSIC–UPC). My research focuses on socially-aware robot navigation and
+      human–robot interaction, combining perception, situational awareness,
+      and decision-making.
+    </p>
+  </section>
 
-<h2>Papers</h2>
-
-<div class="paper">
-  <strong>Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</strong><br>
-  <em>HRI 2026 – Late Breaking Reports</em><br>
-  Edison Jair Bejarano Sepúlveda, Valerio Bo, Alberto Sanfeliu, Anais Garrell<br>
-  <a href="#">PDF</a> ·
-  <a href="https://doi.org/10.1145/3776734.3794394">DOI</a>
-</div>
+  <section>
+    <h3>Publications</h3>
+    <p>
+      <strong>Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</strong><br>
+      HRI 2026 – Late Breaking Report<br>
+      <a href="#">Paper (PDF)</a> ·
+      <a href="#">Project Page</a> ·
+      <a href="#">Code</a>
+    </p>
+  </section>
 
 </body>
 </html>
