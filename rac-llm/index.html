@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ColombiaRAC: LLMs for Aeronautical Regulations</title>
+  <meta name="description" content="Towards Enhanced RAC Accessibility: the first expert-curated dataset (24,478 Q&amp;A pairs) and fine-tuned Gemma models for the Aeronautical Regulations of Colombia." />
+  <meta property="og:title" content="Towards Enhanced RAC Accessibility: Leveraging Datasets and LLMs" />
+  <meta property="og:description" content="Expert-curated RAC dataset + fine-tuned Gemma 1.1 2B · arXiv 2405.08792" />
+  <meta property="og:image" content="https://ejbejaranosai.github.io/rac-llm/assets/dataset_generator.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="back" href="/">Edison J. Bejarano Sepúlveda</a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#abstract">Abstract</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#resources">Resources</a>
+        <a href="#citation">Citation</a>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">◐</button>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <header class="hero">
+      <div class="venue">arXiv 2405.08792 · 2024</div>
+      <h1>Towards Enhanced <span class="accent">RAC Accessibility</span>: Leveraging Datasets and LLMs</h1>
+      <div class="authors">
+        <a href="/">Edison J. Bejarano Sepúlveda</a>, Nicolai Potes Hector, Santiago Pineda Montoya, Felipe Iván Rodríguez,
+        Jaime Enrique Orduy, Alec Rosales Cabezas, Danny Traslaviña Navarrete, Sergio Madrid Farfán
+      </div>
+      <div class="affil">Universidad de Barcelona · Universidad Nacional de Colombia · Fundación Universitaria Los Libertadores</div>
+      <div class="actions">
+        <a class="btn primary" href="https://arxiv.org/abs/2405.08792" target="_blank" rel="noopener">Paper (arXiv)</a>
+        <a class="btn" href="https://huggingface.co/spaces/somosnlp/Colombia_RAC" target="_blank" rel="noopener">Live demo</a>
+        <a class="btn" href="https://huggingface.co/datasets/somosnlp/ColombiaRAC_FullyCurated" target="_blank" rel="noopener">Dataset</a>
+        <a class="btn" href="https://huggingface.co/somosnlp/gemma-1.1-2b-it_ColombiaRAC_FullyCurated_format_chatML_V1" target="_blank" rel="noopener">Model</a>
+        <a class="btn" href="https://github.com/EjbejaranosAI/RACGPT" target="_blank" rel="noopener">Code</a>
+      </div>
+    </header>
+
+    <figure class="figure white">
+      <div class="hero-media"><div class="media"><img src="assets/dataset_generator.png" alt="Dataset generator: each RAC PDF is read page by page, sent to an LLM to produce question–answer samples with their RAC reference, and the samples are assembled into the RAC dataset" /></div></div>
+      <figcaption class="caption">Dataset generator: every page of the RAC PDFs is turned into question–answer samples with their regulatory reference.</figcaption>
+    </figure>
+
+    <section class="reveal" id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        The Aeronautical Regulations of Colombia (RAC) are long, highly technical and hard to navigate for non-experts. This work explores how
+        <strong>large language models</strong> can make them more accessible. We build the <strong>first RAC database</strong>, with
+        24,478 question–answer pairs labelled by aeronautical experts, and fine-tune LLMs specifically for RAC applications.
+      </p>
+      <p>
+        We describe dataset assembly, expert-led annotation and model training on <strong>Gemma 1.1 2B</strong>, using Unsloth for efficient VRAM
+        usage and flash attention to speed up training. The goal is to make the RAC easier to understand for newcomers and to reduce the need
+        for expert consultations in the aviation industry.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>24,478</b><span>expert-labelled Q&amp;A pairs</span></div>
+        <div class="stat"><b>8</b><span>model versions trained and compared</span></div>
+        <div class="stat"><b>276</b><span>expert evaluation tests (median score 7)</span></div>
+      </div>
+    </section>
+
+    <section class="reveal" id="method">
+      <h2>Method</h2>
+      <div class="grid2" style="align-items:center">
+        <figure class="figure white">
+          <div class="media"><img src="assets/annotation.png" alt="Annotation flow: the RAC dataset is mounted in a Hugging Face Space with Argilla, experts rank each sample from 1 to 5, low-quality samples are discarded and the curated version is pushed to Hugging Face" loading="lazy" /></div>
+          <figcaption class="caption">Expert annotation flow with Argilla on Hugging Face.</figcaption>
+        </figure>
+        <div>
+          <ol>
+            <li><strong>Dataset generation.</strong> The RAC PDFs are read page by page and an LLM produces question–answer pairs, each with its RAC reference.</li>
+            <li><strong>Expert curation.</strong> Aeronautical engineering specialists from Fundación Universitaria Los Libertadores rate every sample from 1 to 5 in Argilla. Samples rated 3 or lower are discarded.</li>
+            <li><strong>Fine-tuning.</strong> Gemma 2B / 1.1 2B instruct models are trained with PEFT + QLoRA, and later Unsloth, using SFTTrainer. The LoRA weights are merged for deployment.</li>
+            <li><strong>Evaluation.</strong> Training cost and loss are compared across versions V1–V8, and experts score the answers for each RAC.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal" id="results">
+      <h2>Results</h2>
+      <p>Training runtime, loss and compute per model version. V8 (gemma-1.1-2b-it on the fully curated data) was the most optimised model.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Version</th><th>Time (s)</th><th>Loss</th><th>FLOPs</th></tr></thead>
+          <tbody>
+            <tr><td>V8</td><td>12,607</td><td class="best">0.194</td><td class="best">3.94E+14</td></tr>
+            <tr><td>V7</td><td>33,262</td><td>0.194</td><td>2.51E+15</td></tr>
+            <tr><td>V6</td><td>1,977</td><td>0.243</td><td>5.01E+15</td></tr>
+            <tr><td>V5</td><td>1,779</td><td>0.076</td><td>5.18E+15</td></tr>
+            <tr><td>V4</td><td>1,833</td><td>0.092</td><td>5.06E+15</td></tr>
+            <tr><td>V3</td><td>3,987</td><td>0.071</td><td>4.99E+15</td></tr>
+            <tr><td>V2</td><td>4,239</td><td>1.241</td><td>4.95E+15</td></tr>
+            <tr><td>V1</td><td>50,973</td><td>0.6</td><td>2.29E+15</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">V3–V5 reached a lower loss but gave poorer answers. Later versions improved answer quality and training efficiency.</p>
+
+      <p style="margin-top:22px">Expert evaluation of the answers for each RAC.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>RAC</th><th>Mean</th><th>Median</th><th>Tests</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>6.12</td><td>7</td><td>100</td></tr>
+            <tr><td>2</td><td>5.8</td><td>6.5</td><td>20</td></tr>
+            <tr><td>3</td><td>3.464</td><td>1</td><td>56</td></tr>
+            <tr><td>5</td><td>6.34</td><td>7.5</td><td>100</td></tr>
+            <tr><td><strong>General</strong></td><td><strong>5.6</strong></td><td><strong>7</strong></td><td><strong>276</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">RACs 1 and 5 score highest. RAC 3 needs further work.</p>
+    </section>
+
+    <section class="reveal" id="resources">
+      <h2>Resources</h2>
+      <div class="grid2">
+        <a class="res" href="https://huggingface.co/spaces/somosnlp/Colombia_RAC" target="_blank" rel="noopener"><b>Live demo</b><span>Ask the model about the RAC in a Hugging Face Space (ColombiaRAC V1).</span></a>
+        <a class="res" href="https://huggingface.co/datasets/somosnlp/ColombiaRAC_FullyCurated" target="_blank" rel="noopener"><b>Dataset</b><span>somosnlp/ColombiaRAC_FullyCurated: the expert-curated Q&amp;A pairs.</span></a>
+        <a class="res" href="https://huggingface.co/somosnlp/gemma-1.1-2b-it_ColombiaRAC_FullyCurated_format_chatML_V1" target="_blank" rel="noopener"><b>Model</b><span>Gemma 1.1 2B instruct, fine-tuned on ColombiaRAC (ChatML format).</span></a>
+        <a class="res" href="https://github.com/EjbejaranosAI/RACGPT" target="_blank" rel="noopener"><b>Code</b><span>RACGPT: the dataset generator and fine-tuning notebooks.</span></a>
+      </div>
+    </section>
+
+    <section class="reveal" id="citation">
+      <h2>Citation</h2>
+      <div class="cite-box">
+        <button class="btn copy" type="button" data-copy="#bib">Copy BibTeX</button>
+        <p>If you use the dataset, the models or the code, please cite:</p>
+<pre id="bib">@article{bejarano2024rac,
+  title   = {Towards Enhanced {RAC} Accessibility: Leveraging Datasets and {LLMs}},
+  author  = {Bejarano Sepulveda, Edison Jair and Potes Hector, Nicolai and Pineda Montoya, Santiago and
+             Rodriguez, Felipe Ivan and Orduy, Jaime Enrique and Rosales Cabezas, Alec and
+             Traslavi{\~n}a Navarrete, Danny and Madrid Farfan, Sergio},
+  journal = {arXiv preprint arXiv:2405.08792},
+  year    = {2024}
+}</pre>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 · Edison Jair Bejarano Sepúlveda · <a href="/">Home</a>
+    </footer>
+  </main>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

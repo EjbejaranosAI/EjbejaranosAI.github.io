@@ -12,70 +12,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/site.css" />
-  <style>
-    .topbar{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule)}
-    .topbar-inner{max-width:980px; margin:0 auto; padding:12px 16px; display:flex; justify-content:space-between; align-items:center; gap:12px}
-    .back{font-size:14px; color:var(--ink-2)}
-    .nav{display:flex; gap:18px; font-size:14px; align-items:center}
-    .nav a{color:var(--ink-2)}
-    .nav a:hover{color:var(--ink); text-decoration:none}
-    @media (max-width:720px){ .nav a{display:none} }
-
-    .wrap{max-width:980px; margin:0 auto; padding:56px 16px 64px}
-    header.hero{text-align:center; margin-bottom:36px}
-    .venue{display:inline-block; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); background:var(--accent-soft); border-radius:999px; padding:6px 12px; margin-bottom:18px}
-    h1{margin:0 auto 16px; max-width:760px; font-size:clamp(32px,5.4vw,52px); line-height:1.08; text-wrap:balance}
-    .authors{font-size:17px}
-    .authors a{color:var(--ink); border-bottom:1px solid var(--rule)}
-    .authors a:hover{text-decoration:none; border-color:var(--accent)}
-    .affil{margin-top:6px; font-size:14px; color:var(--ink-3)}
-    .actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px}
-
-    .media{border-radius:12px; overflow:hidden; border:1px solid var(--rule); background:#000}
-    .media video, .media img{display:block; width:100%; height:auto}
-    .figure{margin:0}
-    .figure.white .media{background:var(--figure-bg)}
-    .caption{font-size:13.5px; color:var(--ink-3); margin-top:10px; text-align:center}
-
-    section{margin-top:64px}
-    h2{font-size:28px; margin:0 0 18px; padding-bottom:10px; border-bottom:1px solid var(--rule)}
-    p{color:var(--ink-2); margin:0 0 14px; font-size:16px}
-    ol, ul{color:var(--ink-2); padding-left:22px; margin:0}
-    li{margin:8px 0}
-    strong{color:var(--ink); font-weight:600}
-
-    .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:22px}
-    .stat{border:1px solid var(--rule); background:var(--paper-2); border-radius:12px; padding:18px 14px; text-align:center}
-    .stat b{display:block; font-family:var(--serif); font-weight:500; font-size:34px; color:var(--good); line-height:1.1}
-    .stat span{font-size:13.5px; color:var(--ink-3)}
-    @media (max-width:640px){ .stats{grid-template-columns:1fr} }
-
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-    @media (max-width:760px){ .grid2{grid-template-columns:1fr} }
-
-    .table-wrap{overflow-x:auto; border:1px solid var(--rule); border-radius:12px}
-    table{width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px}
-    th, td{padding:11px 12px; text-align:center; border-bottom:1px solid var(--rule)}
-    th{color:var(--ink-3); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.06em; background:var(--paper-2)}
-    td{color:var(--ink-2); font-variant-numeric:tabular-nums}
-    td.best{color:var(--good); font-weight:600}
-    tr:last-child td{border-bottom:0}
-    .note{font-size:13px; color:var(--ink-3); margin-top:8px}
-
-    .cite-box{position:relative; border:1px solid var(--rule); border-left:3px solid var(--accent); background:var(--paper-2); border-radius:12px; padding:18px}
-    pre{margin:0; padding:16px; border-radius:8px; background:var(--paper); border:1px solid var(--rule); overflow-x:auto; font-family:var(--mono); font-size:13px; line-height:1.55; color:var(--ink)}
-    .copy{position:absolute; top:16px; right:16px}
-    @media (max-width:560px){ .copy{position:static; margin-bottom:12px} }
-
-    footer{margin-top:64px; padding-top:20px; border-top:1px solid var(--rule); text-align:center; font-size:13px; color:var(--ink-3)}
-  </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="stylesheet" href="/assets/project.css" />
   <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 <body>
   <div class="topbar">
     <div class="topbar-inner">
-      <a class="back" href="../">← Edison J. Bejarano Sepúlveda</a>
+      <a class="back" href="/">Edison J. Bejarano Sepúlveda</a>
       <nav class="nav" aria-label="Sections">
         <a href="#abstract">Abstract</a>
         <a href="#method">Method</a>
@@ -90,7 +34,7 @@
   <main class="wrap">
     <header class="hero">
       <div class="venue">ROBOT 2026 · Iberian Robotics Conference</div>
-      <h1>DTF-Track: Dual-Tier Fusion for People Tracking</h1>
+      <h1><span class="accent">DTF-Track:</span> Dual-Tier Fusion for People Tracking</h1>
       <div class="authors">
         <a href="../">Edison Bejarano</a><sup>1,2</sup>,
         Valerio Bo<sup>1,2</sup>,
@@ -109,16 +53,16 @@
     </header>
 
     <figure class="figure">
-      <div class="media">
+      <div class="hero-media"><div class="media">
         <video autoplay muted loop playsinline preload="metadata" poster="assets/demo_poster.jpg" aria-label="DTF-Track running on a robot: YOLO confirmation on RGB and LiDAR tracks in RViz">
           <source src="assets/demo.mp4" type="video/mp4" />
           <img src="assets/demo.gif" alt="DTF-Track demo" />
         </video>
-      </div>
+      </div></div>
       <figcaption class="caption">DTF-Track in action: LiDAR-based tracks in RViz with YOLO confirming the <em>person</em> class on the RGB stream.</figcaption>
     </figure>
 
-    <section id="abstract">
+    <section class="reveal" id="abstract">
       <h2>Abstract</h2>
       <p>
         Mobile service robots operating among humans need reliable 2D LiDAR-based people detection and tracking in the presence of
@@ -139,7 +83,7 @@
       </div>
     </section>
 
-    <section id="method">
+    <section class="reveal" id="method">
       <h2>Method</h2>
       <div class="grid2" style="align-items:center">
         <figure class="figure white">
@@ -157,7 +101,7 @@
       </div>
     </section>
 
-    <section id="experiments">
+    <section class="reveal" id="experiments">
       <h2>Experimental setup</h2>
       <p>
         We test two hypotheses: <strong>H1</strong>, multi-detector consensus at track initiation reduces false positives; and
@@ -176,7 +120,7 @@
       </div>
     </section>
 
-    <section id="results">
+    <section class="reveal" id="results">
       <h2>Results</h2>
       <p>Mean excess identities per time instant (ΔN), as mean ± std over n = 3 trials per robot. Lower is better.</p>
       <div class="table-wrap">
@@ -223,10 +167,10 @@
       </div>
     </section>
 
-    <section id="citation">
+    <section class="reveal" id="citation">
       <h2>Citation</h2>
       <div class="cite-box">
-        <button class="btn copy" type="button" id="copyBib">Copy BibTeX</button>
+        <button class="btn copy" type="button" data-copy="#bib">Copy BibTeX</button>
         <p>If you use <strong>DTF-Track</strong> (code, models or results) in your research, please cite our paper:</p>
 <pre id="bib">@inproceedings{bejarano2026dtftrack,
   title     = {{DTF-Track}: Dual-Tier Fusion for People Tracking},
@@ -238,7 +182,7 @@
       </div>
     </section>
 
-    <section id="ack">
+    <section class="reveal" id="ack">
       <h2>Acknowledgements</h2>
       <p style="font-size:14px">
         This work was supported by JST Moonshot R&amp;D grant number JPMJMS2011 and the European project TORNADO
@@ -251,28 +195,6 @@
     </footer>
   </main>
 
-  <script>
-    (function(){
-      const root = document.documentElement, btn = document.getElementById('themeToggle');
-      try{ const t = localStorage.getItem('theme'); if(t) root.dataset.theme = t; }catch(_){}
-      btn?.addEventListener('click', () => {
-        const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-        root.dataset.theme = dark ? 'light' : 'dark';
-        try{ localStorage.setItem('theme', root.dataset.theme); }catch(_){}
-      });
-    })();
-    document.getElementById('copyBib')?.addEventListener('click', async (e) => {
-      const btn = e.currentTarget;
-      try{
-        await navigator.clipboard.writeText(document.getElementById('bib').textContent);
-        btn.textContent = 'Copied ✓';
-      }catch(_){
-        const r = document.createRange(); r.selectNodeContents(document.getElementById('bib'));
-        const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = 'Selected, press Ctrl/⌘+C';
-      }
-      setTimeout(()=>btn.textContent='Copy BibTeX', 1600);
-    });
-  </script>
+  <script src="/assets/site.js"></script>
 </body>
 </html>
