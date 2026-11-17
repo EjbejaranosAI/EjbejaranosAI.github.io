@@ -7,7 +7,7 @@
   <meta name="description" content="PhD researcher at IRI (CSIC–UPC). Human–robot interaction, socially-aware navigation, people detection and tracking, multimodal perception." />
   <meta property="og:title" content="Edison Jair Bejarano Sepúlveda" />
   <meta property="og:description" content="PhD researcher in Human–Robot Interaction at IRI (CSIC–UPC), Barcelona." />
-  <meta property="og:image" content="https://ejbejaranosai.github.io/img/hero_small.jpg" />
+  <meta property="og:image" content="https://ejbejaranosai.github.io/img/hero_lab_small.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
@@ -31,20 +31,23 @@
 
     /* ---------- Hero ---------- */
     .hero{position:relative; min-height:max(620px, 92vh); display:flex; align-items:flex-end; color:#fff; overflow:hidden; isolation:isolate}
-    .hero-bg{position:absolute; inset:0; z-index:-2; background:#05070d url("img/hero.jpg") 72% center/cover no-repeat; transform:scale(1.04); animation:zoom 18s ease-out forwards}
+    .hero-bg{position:absolute; inset:0 0 0 20%; z-index:-2; background:#05070d url("img/hero_lab.jpg") 62% center/cover no-repeat; transform:scale(1.04); animation:zoom 18s ease-out forwards}
     @keyframes zoom{to{transform:scale(1)}}
     .hero::before{content:""; position:absolute; inset:0; z-index:-1;
       background:
-        linear-gradient(90deg, rgba(5,7,14,.92) 0%, rgba(5,7,14,.72) 38%, rgba(5,7,14,.15) 70%, rgba(5,7,14,.25) 100%),
-        linear-gradient(0deg, var(--paper) 0%, rgba(5,7,14,0) 30%),
-        radial-gradient(700px 400px at 15% 85%, rgba(124,92,255,.35), transparent 70%)}
+        linear-gradient(90deg, rgba(5,7,14,.94) 0%, rgba(5,7,14,.84) 30%, rgba(5,7,14,.45) 52%, rgba(5,7,14,.05) 72%, rgba(5,7,14,.15) 100%),
+        linear-gradient(0deg, var(--paper) 0%, rgba(5,7,14,0) 28%),
+        linear-gradient(180deg, rgba(5,7,14,.55) 0%, rgba(5,7,14,0) 18%),
+        radial-gradient(700px 400px at 12% 80%, rgba(124,92,255,.32), transparent 70%)}
     .hero-inner{width:100%; max-width:1160px; margin:0 auto; padding:120px 24px 96px}
     .hero .eyebrow{color:rgba(255,255,255,.75); display:inline-flex; align-items:center; gap:10px; padding:7px 14px; border:1px solid rgba(255,255,255,.18); border-radius:999px; background:rgba(255,255,255,.06); backdrop-filter:blur(6px)}
     .hero .eyebrow i{width:7px; height:7px; border-radius:99px; background:#5FD3A0; box-shadow:0 0 0 0 rgba(95,211,160,.6); animation:pulse 2.2s infinite}
     @keyframes pulse{70%{box-shadow:0 0 0 9px rgba(95,211,160,0)}100%{box-shadow:0 0 0 0 rgba(95,211,160,0)}}
     .hero h1{color:#fff; font-size:clamp(44px, 7.4vw, 92px); line-height:.98; margin:22px 0 18px; max-width:760px; letter-spacing:-.025em}
     .hero h1 em{font-style:italic; font-weight:400}
-    .hero .tagline{font-size:clamp(17px, 2vw, 21px); max-width:560px; color:rgba(255,255,255,.84); margin:0 0 30px; line-height:1.5}
+    .hero .quote{position:relative; margin:0 0 32px; padding-left:22px; max-width:540px; border-left:2px solid transparent; border-image:var(--grad) 1}
+    .hero .quote p{margin:0; font-family:var(--serif); font-style:italic; font-weight:400; font-size:clamp(21px, 2.5vw, 29px); line-height:1.35; color:rgba(255,255,255,.95); letter-spacing:-.005em}
+    .hero .quote span{display:block; margin-top:10px; font-size:13px; letter-spacing:.06em; color:rgba(255,255,255,.6)}
     .hero .ctas{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:34px}
     .hero .btn:not(.primary){background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22); color:#fff; backdrop-filter:blur(6px)}
     .hero .btn:not(.primary):hover{background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.4)}
@@ -55,11 +58,11 @@
     .scroll-hint{position:absolute; left:50%; bottom:22px; transform:translateX(-50%); width:22px; height:36px; border:1.5px solid rgba(255,255,255,.4); border-radius:12px}
     .scroll-hint::after{content:""; position:absolute; left:50%; top:7px; width:3px; height:7px; margin-left:-1.5px; border-radius:2px; background:#fff; animation:wheel 1.8s infinite}
     @keyframes wheel{0%{opacity:0; transform:translateY(0)}30%{opacity:1}100%{opacity:0; transform:translateY(10px)}}
-    @media (max-width:640px){
+    @media (max-width:900px){
       .hero{min-height:auto}
-      .hero-bg{background-position:78% center}
-      .hero::before{background:linear-gradient(0deg, var(--paper) 0%, rgba(5,7,14,.82) 45%, rgba(5,7,14,.15) 80%, rgba(5,7,14,.35) 100%)}
-      .hero-inner{padding:300px 16px 56px}
+      .hero-bg{inset:0 0 auto 0; height:clamp(340px, 78vw, 620px); background-image:url("img/hero_lab_small.jpg"); background-position:82% 30%; background-size:cover; -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%); mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+      .hero::before{background:linear-gradient(0deg, var(--paper) 0%, rgba(8,11,20,.9) 45%, rgba(5,7,14,.25) 65%, rgba(5,7,14,.05) 80%, rgba(5,7,14,.45) 100%)}
+      .hero-inner{padding:clamp(280px, 52vw, 420px) 16px 56px}
       .scroll-hint{display:none}
     }
 
@@ -160,11 +163,14 @@
   </header>
 
   <section class="hero" id="top">
-    <div class="hero-bg" role="img" aria-label="Edison looking over the city at night"></div>
+    <div class="hero-bg" role="img" aria-label="Edison running a people-tracking demo with the TIAGo Pro robot at the IRI Mobile Robotics lab"></div>
     <div class="hero-inner">
       <span class="eyebrow"><i aria-hidden="true"></i>PhD Researcher · IRI (CSIC–UPC)</span>
       <h1>Edison Jair<br />Bejarano <em>Sepúlveda</em></h1>
-      <p class="tagline">Building robots that perceive, understand and move safely among people: human–robot interaction, socially-aware navigation and people tracking.</p>
+      <blockquote class="quote">
+        <p>“Building robots is our modern way of looking into a mirror.”</p>
+        <span>Human–robot interaction · socially-aware navigation · people tracking</span>
+      </blockquote>
       <div class="ctas">
         <a class="btn primary" href="dtf-track/">New: DTF-Track @ ROBOT 2026 →</a>
         <a class="btn" href="#publications">Publications</a>
