@@ -4,367 +4,242 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Edison Jair Bejarano Sepúlveda</title>
-  <meta name="description" content="PhD Researcher at IRI (CSIC–UPC). Human-Robot Interaction, socially-aware navigation, multimodal perception, situational awareness, decision-making." />
-
+  <meta name="description" content="PhD researcher at IRI (CSIC–UPC). Human–robot interaction, socially-aware navigation, people detection and tracking, multimodal perception." />
+  <meta property="og:title" content="Edison Jair Bejarano Sepúlveda" />
+  <meta property="og:description" content="PhD researcher in Human–Robot Interaction at IRI (CSIC–UPC), Barcelona." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    :root{
-      --bg0:#070A12;
-      --bg1:#0B1222;
-      --card: rgba(255,255,255,.06);
-      --text:#E9EEF9;
-      --muted: rgba(233,238,249,.72);
-      --muted2: rgba(233,238,249,.56);
-      --accent:#7C5CFF;
-      --accent2:#37B8FF;
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
-      --radius: 18px;
-    }
+    .layout{max-width:1080px; margin:0 auto; padding:72px 28px 64px; display:grid; grid-template-columns:280px 1fr; gap:72px}
+    @media (max-width:880px){ .layout{grid-template-columns:1fr; gap:40px; padding:40px 16px 48px} }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.35), transparent 60%),
-        radial-gradient(900px 600px at 110% 10%, rgba(55,184,255,.22), transparent 55%),
-        radial-gradient(900px 600px at 60% 120%, rgba(124,92,255,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      min-height:100vh;
-    }
+    /* Sidebar */
+    .side{position:sticky; top:48px; align-self:start}
+    @media (max-width:880px){ .side{position:static} }
+    .side h1{font-size:34px; line-height:1.1; margin:0 0 10px}
+    .role{font-size:15px; color:var(--ink-2); margin:0 0 4px}
+    .org{font-size:14px; color:var(--ink-3); margin:0 0 22px}
+    .side nav{display:flex; flex-direction:column; gap:2px; margin:0 0 24px; padding:16px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+    .side nav a{color:var(--ink-2); font-size:14.5px; padding:3px 0}
+    .side nav a:hover{color:var(--ink); text-decoration:none}
+    @media (max-width:880px){ .side nav{flex-direction:row; flex-wrap:wrap; gap:4px 16px} }
+    .contact{display:flex; flex-direction:column; gap:7px; font-size:14px}
+    .contact a{color:var(--ink-2)}
+    .contact a:hover{color:var(--accent)}
+    .side-foot{display:flex; align-items:center; gap:10px; margin-top:22px}
 
-    a{color:inherit; text-decoration:none}
-    a:focus{outline:2px solid rgba(124,92,255,.65); outline-offset:3px; border-radius:10px}
+    /* Main */
+    main section{margin-bottom:64px}
+    main section:last-child{margin-bottom:0}
+    .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:22px; padding-bottom:10px; border-bottom:1px solid var(--rule)}
+    .section-head h2{font-size:26px; margin:0}
+    .section-head a{font-size:14px}
+    .lead{font-family:var(--serif); font-size:21px; line-height:1.55; color:var(--ink); margin:0 0 16px}
+    main p{margin:0 0 14px; color:var(--ink-2)}
 
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      background: rgba(7,10,18,.55);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar-inner{
-      max-width:1100px;
-      margin:0 auto;
-      padding:12px 18px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      justify-content:space-between;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:700;
-      letter-spacing:.2px;
-      opacity:.95;
-      white-space:nowrap;
-    }
-    .dot{
-      width:10px; height:10px; border-radius:99px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(124,92,255,.15);
-    }
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:9px 12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      color: rgba(233,238,249,.92);
-      font-size:13px;
-      line-height:1;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      user-select:none;
-    }
-    .pill:hover{transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.16);}
+    /* News */
+    .news{list-style:none; margin:0; padding:0}
+    .news li{display:grid; grid-template-columns:92px 1fr; gap:16px; padding:10px 0; border-bottom:1px dashed var(--rule); color:var(--ink-2); font-size:15px}
+    .news li:last-child{border-bottom:0}
+    .news time{font-size:13px; color:var(--ink-3); font-variant-numeric:tabular-nums; padding-top:2px}
 
-    .wrap{max-width:1100px; margin:0 auto; padding:22px 18px 70px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap:16px;
-      margin-top:16px;
-    }
-    @media (max-width: 940px){
-      .grid{grid-template-columns:1fr}
-      .nav{display:none}
-    }
+    /* Research focus */
+    .focus{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width:640px){ .focus{grid-template-columns:1fr} }
+    .focus div{padding:16px 18px; border:1px solid var(--rule); border-radius:12px; background:var(--paper-2)}
+    .focus h3{font-size:18px; margin:0 0 4px}
+    .focus p{font-size:14.5px; margin:0}
 
-    .hero{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-    }
-    .hero-banner{
-      height:240px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.55)),
-        url("./img/banner.jpg") center/cover no-repeat;
-      pointer-events:none;
-    }
-    .hero-body{padding:18px 18px 16px; display:flex; flex-direction:column; gap:10px;}
-    .hero h1{margin:0; font-size:34px; letter-spacing:-.4px; line-height:1.05;}
-    .subtitle{margin:0; color:var(--muted); font-size:14px;}
-    .tags{margin-top:2px; color: var(--muted2); font-size:12.5px;}
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      color: rgba(233,238,249,.92);
-      font-size:13px;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16);}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(124,92,255,.95), rgba(55,184,255,.70));
-      border-color: rgba(255,255,255,.14);
-      color: #0a0d16;
-      font-weight:700;
-    }
+    /* Publications */
+    .pubs{display:flex; flex-direction:column}
+    .pub{display:grid; grid-template-columns:200px 1fr; gap:22px; padding:22px 0; border-bottom:1px solid var(--rule)}
+    .pub:first-child{padding-top:0}
+    .pub:last-child{border-bottom:0}
+    .pub.no-thumb{grid-template-columns:1fr}
+    @media (max-width:640px){ .pub{grid-template-columns:1fr; gap:12px} }
+    .thumb{display:block; border-radius:10px; overflow:hidden; border:1px solid var(--rule); background:var(--figure-bg); aspect-ratio:16/10}
+    .thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s}
+    .thumb:hover img{transform:scale(1.03)}
+    .pub h3{font-size:19px; line-height:1.3; margin:0 0 6px}
+    .pub h3 a{color:var(--ink)}
+    .venue{font-size:13.5px; color:var(--ink-3); margin-bottom:4px}
+    .venue b{color:var(--accent); font-weight:600}
+    .auth{font-size:14px; color:var(--ink-2); margin-bottom:8px}
+    .auth u{text-decoration:none; color:var(--ink); font-weight:500}
+    .pub p{font-size:14.5px; margin:0 0 10px}
+    .tag{display:inline-block; font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--good); border:1px solid currentColor; border-radius:4px; padding:1px 6px; margin-left:8px; vertical-align:2px}
 
-    .card{
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding:16px;
-      box-shadow: 0 14px 40px rgba(0,0,0,.35);
-    }
-    .card h2{
-      margin:0 0 10px;
-      font-size:12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color: rgba(233,238,249,.78);
-    }
-    .card p{margin:0; color: var(--muted); font-size:14px; line-height:1.55}
-
-    .list{display:flex; flex-direction:column; gap:10px;}
-    .pub{
-      border-radius: 14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      padding:12px;
-    }
-    .pub-title{font-weight:700; color: rgba(233,238,249,.96); font-size:14px;}
-    .pub-meta{margin-top:3px; color: var(--muted2); font-size:12.5px;}
-    .pub-auth{margin-top:6px; color: rgba(233,238,249,.60); font-size:12.5px;}
-    .pub-links{margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;}
-    .chip{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.06);
-      font-size:12.5px;
-      color: rgba(233,238,249,.90);
-    }
-    .chip:hover{background: rgba(255,255,255,.09);}
-    .chip.disabled{opacity:.55; cursor:not-allowed;}
-    .chip.disabled:hover{background: rgba(255,255,255,.06);}
-
-    .cols{display:grid; grid-template-columns:1fr; gap:16px;}
-    .focus ul{margin:0; padding-left:18px; color: var(--muted); font-size:14px; line-height:1.6;}
-    .focus li{margin:6px 0;}
-    .quick{display:flex; gap:10px; flex-wrap:wrap;}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
-    .small{font-size:12.5px; color: var(--muted2);}
-
-    footer{
-      margin-top:28px;
-      color: rgba(233,238,249,.45);
-      font-size:12.5px;
-      text-align:center;
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
+    footer{max-width:1080px; margin:0 auto; padding:24px 28px 48px; border-top:1px solid var(--rule); font-size:13px; color:var(--ink-3)}
+    @media (max-width:880px){ footer{padding:24px 16px 40px} }
   </style>
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(_){}</script>
 </head>
 
 <body>
-  <div class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Edison Jair Bejarano Sepúlveda</span>
+  <div class="layout">
+    <aside class="side">
+      <div class="eyebrow" style="margin-bottom:14px">PhD Researcher</div>
+      <h1>Edison Jair Bejarano Sepúlveda</h1>
+      <p class="role">Human–Robot Interaction</p>
+      <p class="org">Institut de Robòtica i Informàtica Industrial (IRI), CSIC–UPC · Barcelona</p>
+
+      <nav aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#research">Research focus</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="contact" id="contact">
+        <a href="mailto:edison.bejarano@upc.edu">edison.bejarano@upc.edu</a>
+        <a href="https://www.iri.upc.edu/staff/ebejarano" target="_blank" rel="noopener">IRI profile</a>
+        <a href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/ejbejaranos/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID 0000-0002-5384-5141</a>
       </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="pill" href="#about">About</a>
-        <a class="pill" href="#publications">Publications</a>
-        <a class="pill" href="#research">Research</a>
+      <div class="side-foot">
+        <button class="btn" type="button" id="copyEmail">Copy email</button>
+        <button class="theme-toggle" type="button" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+      </div>
+    </aside>
 
-        <a class="pill" href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
-        <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">Scholar</a>
-        <a class="pill" href="https://www.linkedin.com/in/ejbejaranos/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="pill" href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID</a>
-        <a class="pill" href="mailto:edison.bejarano@upc.edu">Email</a>
-      </nav>
-    </div>
+    <main>
+      <section id="about">
+        <p class="lead">
+          I build perception and decision-making systems that let robots move and interact safely and naturally around people.
+        </p>
+        <p>
+          I am a PhD researcher at the Institute of Robotics and Industrial Informatics (IRI, CSIC–UPC), in the Mobile Robotics group.
+          My work spans socially-aware navigation and human–robot interaction. It connects robust people detection and tracking,
+          situational awareness and interaction-aware decisions on real platforms such as TIAGO Pro and IVO, and the code is open-source
+          on ROS&nbsp;2.
+        </p>
+      </section>
+
+      <section id="news">
+        <div class="section-head"><h2>News</h2></div>
+        <ul class="news">
+          <li><time>2026</time><span><a href="dtf-track/">DTF-Track</a>, our dual-tier fusion people tracker for 2D LiDAR, was presented at <strong>ROBOT 2026</strong>, the Iberian Robotics Conference. <a href="https://github.com/EjbejaranosAI/DTF-Track" target="_blank" rel="noopener">Code is open-source.</a></span></li>
+          <li><time>2026</time><span>Late-breaking report on the <a href="https://ejbejaranosai.github.io/hri-pad-navigation/" target="_blank" rel="noopener">Perception–Awareness–Decision</a> architecture at <strong>ACM/IEEE HRI 2026</strong>.</span></li>
+        </ul>
+      </section>
+
+      <section id="research">
+        <div class="section-head"><h2>Research focus</h2></div>
+        <div class="focus">
+          <div>
+            <h3>People detection &amp; tracking</h3>
+            <p>Robust 2D-LiDAR and RGB multi-person tracking under clutter, ego-motion and occlusions, with multi-detector fusion.</p>
+          </div>
+          <div>
+            <h3>Socially-aware navigation</h3>
+            <p>Robots that move through dynamic human environments while respecting people's space and intentions.</p>
+          </div>
+          <div>
+            <h3>Perception–awareness–decision</h3>
+            <p>Architectures that turn multimodal perception into situational awareness and interaction-aware decisions.</p>
+          </div>
+          <div>
+            <h3>Grounded HRI &amp; language</h3>
+            <p>Context-grounded dialogue and vision–language models for task-level human–robot interaction.</p>
+          </div>
+          <div>
+            <h3>Cross-platform evaluation</h3>
+            <p>Reproducible benchmarking of perception across robots and in simulation (ROS&nbsp;2, Gazebo).</p>
+          </div>
+          <div>
+            <h3>Semantic scene understanding</h3>
+            <p>Semantic mapping and multimodal scene understanding for robots in shared spaces.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="section-head">
+          <h2>Publications</h2>
+          <a href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">All on Google Scholar →</a>
+        </div>
+
+        <div class="pubs">
+          <article class="pub">
+            <a class="thumb" href="dtf-track/" aria-label="DTF-Track project page"><img src="dtf-track/assets/demo_poster.jpg" alt="DTF-Track tracking people in RViz with YOLO confirmation" loading="lazy" /></a>
+            <div>
+              <div class="venue"><b>ROBOT 2026</b> · Iberian Robotics Conference <span class="tag">New</span></div>
+              <h3><a href="dtf-track/">DTF-Track: Dual-Tier Fusion for People Tracking</a></h3>
+              <div class="auth"><u>E. Bejarano</u>, V. Bo, A. Garrell, A. Sanfeliu</div>
+              <p>A unified ROS&nbsp;2 node for 2D-LiDAR people tracking with multi-detector consensus and LiDAR-first Kalman tracking. It produces 43–72% fewer excess identities than SPENCER.</p>
+              <div class="links">
+                <a href="dtf-track/">Project page</a>
+                <a href="https://github.com/EjbejaranosAI/DTF-Track" target="_blank" rel="noopener">Code</a>
+                <a href="dtf-track/#citation">BibTeX</a>
+                <span>PDF coming soon</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub no-thumb">
+            <div>
+              <div class="venue"><b>HRI 2026</b> · Late-Breaking Report</div>
+              <h3><a href="https://ejbejaranosai.github.io/hri-pad-navigation/" target="_blank" rel="noopener">Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</a></h3>
+              <div class="auth"><u>E. J. Bejarano Sepúlveda</u>, V. Bo, A. Sanfeliu, A. Garrell</div>
+              <div class="links">
+                <a href="https://ejbejaranosai.github.io/hri-pad-navigation/" target="_blank" rel="noopener">Project page</a>
+                <a href="https://github.com/EjbejaranosAI/hri-pad-navigation" target="_blank" rel="noopener">Code</a>
+                <span>PDF coming soon</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub no-thumb">
+            <div>
+              <div class="venue"><b>arXiv</b> · 2405.08792 · 2024</div>
+              <h3><a href="https://arxiv.org/abs/2405.08792" target="_blank" rel="noopener">Towards Enhanced RAC Accessibility: Leveraging Datasets and LLMs</a></h3>
+              <div class="auth"><u>E. J. Bejarano Sepúlveda</u>, N. P. Hector, S. P. Montoya, F. I. Rodríguez, J. E. Orduy, …</div>
+              <div class="links"><a href="https://arxiv.org/abs/2405.08792" target="_blank" rel="noopener">arXiv</a></div>
+            </div>
+          </article>
+
+          <article class="pub no-thumb">
+            <div>
+              <div class="venue"><b>Revista Ciencia y Poder Aéreo</b> · 2024</div>
+              <h3>Estudio de la contaminación auditiva producida por las aeronaves sobre la ciudad de Bogotá, utilizando el sistema ADS-B</h3>
+              <div class="auth">D. S. Traslaviña Navarrete, A. M. Rosales Cabezas, S. N. Madrid Farfán, …</div>
+            </div>
+          </article>
+
+          <article class="pub no-thumb">
+            <div>
+              <div class="venue"><b>DYNA</b> 88(218) · 2021</div>
+              <h3>Conceptual Design and Structural Analysis of Ground Support Equipment for Handling and Maintenance of Turboshaft Engines</h3>
+              <div class="auth">I. F. Rodríguez-Barón, J. E. Orduy-Rodríguez, B. A. Rosas-Bonilla, …</div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <main class="wrap">
-    <section class="hero" aria-label="Hero">
-      <div class="hero-banner"></div>
-      <div class="hero-body">
-        <h1>Edison Jair Bejarano Sepúlveda</h1>
-        <p class="subtitle">PhD Researcher · Human–Robot Interaction · CSIC–UPC (IRI)</p>
-        <div class="tags">Socially-aware robot navigation · Interaction-aware decision-making · Multimodal perception & situational awareness</div>
-
-        <div class="hero-actions">
-          <a class="btn primary" href="https://www.iri.upc.edu/staff/ebejarano" target="_blank" rel="noopener">IRI Profile</a>
-          <a class="btn" href="#publications">Latest publication</a>
-          <a class="btn" href="#contact">Contact</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid">
-      <div class="cols">
-        <section id="about" class="card">
-          <h2>About</h2>
-          <p>
-            I am a PhD researcher at the Institute of Robotics and Industrial Informatics (IRI, CSIC–UPC).
-            My work focuses on socially-aware navigation and human–robot interaction, integrating perception,
-            situational awareness, and decision-making for robots operating in shared human environments.
-          </p>
-        </section>
-
-        <section id="publications" class="card">
-          <div class="row">
-            <h2 style="margin:0">Selected publications</h2>
-            <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">View all on Scholar</a>
-          </div>
-
-          <div class="list" style="margin-top:12px">
-
-            <!-- DTF-Track (ROBOT 2026) -->
-            <div class="pub">
-              <div class="pub-title">DTF-Track: Dual-Tier Fusion for People Tracking</div>
-              <div class="pub-meta">ROBOT 2026 · Iberian Robotics Conference</div>
-              <div class="pub-auth">E. J. Bejarano Sepúlveda, V. Bo, A. Garrell, A. Sanfeliu</div>
-              <p class="small" style="margin-top:8px">
-                Unified ROS 2 node for 2D-LiDAR people tracking with multi-detector consensus, dual-tier spawn/maintenance
-                policies and LiDAR-first Kalman tracking with decoupled YOLO confirmation. Compared with SPENCER: 43–47% fewer
-                excess IDs in clutter, 62–72% fewer during occluded crossings, and roughly twice the precision.
-              </p>
-              <div class="pub-links">
-                <span class="chip disabled" title="Add the PDF when it is public.">Paper (PDF) · Coming soon</span>
-                <a class="chip" href="https://github.com/EjbejaranosAI/DTF-Track" target="_blank" rel="noopener">Code</a>
-              </div>
-            </div>
-
-            <!-- PAD (coming soon PDF) -->
-            <div class="pub">
-              <div class="pub-title">Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction</div>
-              <div class="pub-meta">HRI 2026 · Late Breaking Report</div>
-              <div class="pub-auth">E. J. Bejarano Sepúlveda, V. Bo, A. Sanfeliu, A. Garrell</div>
-              <div class="pub-links">
-                <span class="chip disabled" title="Add the PDF when it is public.">Paper (PDF) · Coming soon</span>
-                <a class="chip" href="https://ejbejaranosai.github.io/hri-pad-navigation/" target="_blank" rel="noopener">Project Page</a>
-                <a class="chip" href="https://github.com/EjbejaranosAI/hri-pad-navigation" target="_blank" rel="noopener">Code</a>
-              </div>
-            </div>
-
-            <!-- arXiv 2024 -->
-            <div class="pub">
-              <div class="pub-title">Towards Enhanced RAC Accessibility: Leveraging Datasets and LLMs</div>
-              <div class="pub-meta">arXiv preprint (arXiv:2405.08792) · 2024</div>
-              <div class="pub-auth">E. J. Bejarano Sepúlveda, N. P. Hector, S. P. Montoya, F. I. Rodríguez, J. E. Orduy, …</div>
-              <div class="pub-links">
-                <a class="chip" href="https://arxiv.org/abs/2405.08792" target="_blank" rel="noopener">Paper (arXiv)</a>
-              </div>
-            </div>
-
-            <!-- Noise pollution ADS-B 2024 (keep one canonical entry) -->
-            <div class="pub">
-              <div class="pub-title">Estudio de la contaminación auditiva producida por las aeronaves sobre la ciudad de Bogotá, utilizando el sistema ADS-B</div>
-              <div class="pub-meta">Revista Ciencia y Poder Aéreo · 2024</div>
-              <div class="pub-auth">D. S. Traslaviña Navarrete, A. M. Rosales Cabezas, S. N. Madrid Farfán, …</div>
-              <div class="pub-links">
-                <span class="chip disabled" title="Add the journal link/DOI when available.">Paper · Link pending</span>
-              </div>
-            </div>
-
-            <!-- Turboshaft GSE 2021 (keep one canonical entry) -->
-            <div class="pub">
-              <div class="pub-title">Conceptual Design and Structural Analysis of Ground Support Equipment for Handling and Maintenance of Turboshaft Engines</div>
-              <div class="pub-meta">DYNA 88(218) · 2021</div>
-              <div class="pub-auth">I. F. Rodríguez-Barón, J. E. Orduy-Rodríguez, B. A. Rosas-Bonilla, …</div>
-              <div class="pub-links">
-                <span class="chip disabled" title="Add the journal link/DOI when available.">Paper · Link pending</span>
-              </div>
-            </div>
-
-            <!-- Spanish title version 2021 appears duplicated in Scholar: omit to avoid repetition -->
-          </div>
-
-          <p class="small" style="margin-top:12px">
-            This list is curated manually (browsers block automatic import from Google Scholar).
-            Use “View all on Scholar” for the complete and authoritative list.
-          </p>
-        </section>
-
-        <section id="contact" class="card">
-          <h2>Contact</h2>
-          <p>If you want to collaborate or discuss research, the fastest way is email.</p>
-          <div class="hero-actions" style="margin-top:12px">
-            <a class="btn primary" href="mailto:edison.bejarano@upc.edu?subject=Research%20inquiry">Email me</a>
-            <a class="btn" href="https://www.linkedin.com/in/ejbejaranos/" target="_blank" rel="noopener">Message on LinkedIn</a>
-            <button class="btn" type="button" id="copyEmail">Copy email</button>
-          </div>
-          <p class="small" style="margin-top:10px">edison.bejarano@upc.edu</p>
-        </section>
-      </div>
-
-      <aside class="cols">
-        <section id="research" class="card focus">
-          <h2>Research focus</h2>
-          <ul>
-            <li>Social navigation in dynamic human environments</li>
-            <li>Perception–awareness–decision pipelines</li>
-            <li>2D-LiDAR people detection &amp; multi-object tracking</li>
-            <li>Context-grounded HRI and task-level dialogue</li>
-            <li>Semantic mapping & multimodal scene understanding</li>
-          </ul>
-        </section>
-
-        <section class="card">
-          <h2>Quick links</h2>
-          <div class="quick">
-            <a class="pill" href="https://www.iri.upc.edu/staff/ebejarano" target="_blank" rel="noopener">IRI</a>
-            <a class="pill" href="https://github.com/EjbejaranosAI" target="_blank" rel="noopener">GitHub</a>
-            <a class="pill" href="https://scholar.google.com/citations?user=q667_eAAAAAJ" target="_blank" rel="noopener">Scholar</a>
-            <a class="pill" href="https://www.linkedin.com/in/ejbejaranos/" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="pill" href="https://orcid.org/0000-0002-5384-5141" target="_blank" rel="noopener">ORCID</a>
-            <a class="pill" href="mailto:edison.bejarano@upc.edu">Email</a>
-          </div>
-        </section>
-      </aside>
-    </section>
-
-    <footer>
-      © 2026 · Edison Jair Bejarano Sepúlveda · CSIC–UPC (IRI)
-    </footer>
-  </main>
+  <footer>© 2026 Edison Jair Bejarano Sepúlveda · IRI (CSIC–UPC), Barcelona</footer>
 
   <script>
-    document.getElementById('copyEmail')?.addEventListener('click', async () => {
-      const email = 'edison.bejarano@upc.edu';
-      try{
-        await navigator.clipboard.writeText(email);
-        const btn = document.getElementById('copyEmail');
-        const old = btn.textContent;
-        btn.textContent = 'Copied ✓';
-        setTimeout(()=>btn.textContent = old, 1200);
-      }catch(e){
-        window.location.href = 'mailto:' + email;
-      }
+    (function(){
+      const root = document.documentElement, btn = document.getElementById('themeToggle');
+      try{ const t = localStorage.getItem('theme'); if(t) root.dataset.theme = t; }catch(_){}
+      btn?.addEventListener('click', () => {
+        const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        root.dataset.theme = dark ? 'light' : 'dark';
+        try{ localStorage.setItem('theme', root.dataset.theme); }catch(_){}
+      });
+    })();
+    document.getElementById('copyEmail')?.addEventListener('click', async (e) => {
+      const email = 'edison.bejarano@upc.edu', b = e.currentTarget;
+      try{ await navigator.clipboard.writeText(email); b.textContent = 'Copied ✓'; setTimeout(()=>b.textContent='Copy email', 1400); }
+      catch(_){ location.href = 'mailto:' + email; }
     });
   </script>
 </body>
