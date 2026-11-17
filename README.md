@@ -22,6 +22,13 @@ Institute of Robotics and Industrial Informatics (IRI), CSIC–UPC
 
 ## Publications
 
+**DTF-Track: Dual-Tier Fusion for People Tracking**  
+*ROBOT 2026 – Iberian Robotics Conference*  
+E. J. Bejarano Sepúlveda, V. Bo, A. Garrell, A. Sanfeliu
+
+- Paper (PDF): _to be added_  
+- Code: https://github.com/EjbejaranosAI/DTF-Track
+
 **Perception–Awareness–Decision: Socially-Aware Robot Navigation and Interaction**  
 *Late Breaking Report, ACM/IEEE HRI 2026*  
 
